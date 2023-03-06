@@ -1,0 +1,22 @@
+{
+    "localhost:4200": {
+        "name": "Technology for Geosinergia",
+        "shortName": "T4G",
+        "logo": "https://t4g-portal.haintech.cl/assets/images/logos/logo_t4g_color.png"
+    },
+    "localhost:4201": {
+        "name": "Test",
+        "shortName": "Test",
+        "logo": "https://t4g-portal.haintech.cl/assets/images/logos/logo_t4g_color.png"
+    },
+    "localhost:4300": {
+        "name": "Paautin",
+        "shortName": "Paautin",
+        "logo": "https://paautin-portal-dev.haintech.cl/assets/img/logo_brillos.png"
+    },
+    "localhost:4400": {
+        "name": "Vida Camara",
+        "shortName": "VC",
+        "logo": "https://www.vidacamara.cl/resourcePackages/vidacamara/assets/dist/images/logo.png"
+    }
+}
