@@ -1,4 +1,9 @@
 <template>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+  </head>
   <Wireframe>
     <router-view />
   </Wireframe>
@@ -16,17 +21,28 @@ export default {
 
 <style>
 #app {
-  font-family: Raleway;
+  font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-
-body{ 
+body {
   margin: 0;
+}
+
+:root {
+  --primary-color: #E7632F;
+  --primary-soft-color: #FCDCCF;
+  --secondary-color: #00BAFF;
+  --secondary-color: #99E3FF;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--secondary-color);
 }
 </style>
