@@ -1,26 +1,32 @@
 <template>
   <div>
     <header>
-      <Navbar @toggleShowAside="showAside = !showAside" />
+      <Navbar />
     </header>
 
-    <Sidebar :value="showAside" />
+    <Sidebar />
 
-    <main>Main Content</main>
+    <main>
+      <SectionButtons />
+    </main>
 
-    <footer>Footer content</footer>
+    <!-- <footer>Footer content</footer> -->
   </div>
 </template>
 
 <script>
 import Navbar from "./Navbar.vue";
 import Sidebar from "./Sidebar.vue";
+import BaseSection from "./BaseSection.vue";
+import SectionButtons from "./SectionButtons.vue";
 
 export default {
   components: {
     Navbar,
     Sidebar,
-  },
+    BaseSection,
+    SectionButtons
+},
   data() {
     return {
       showAside: false,
@@ -48,5 +54,6 @@ export default {
 
 <style>
 header {
+  height: 64px;
 }
 </style>

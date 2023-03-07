@@ -1,18 +1,26 @@
 <template>
-  <aside>
-    <div :class="['overlay', { hidden: !value }]"></div>
-    <div :class="['list-items', { hidden: !value }]">
+  <Transition>
+    <aside v-show="menuStore.show">
       <a v-for="(item, index) in asideItems" :href="item.href">
-        <v-icon v-if="item.icon" class="mr-2">{{ item.icon }}</v-icon
-        >{{ item.title }}
+        <v-icon v-if="item.icon" class="mr-2">{{ item.icon }}</v-icon>{{ item.title }}
       </a>
-    </div>
-  </aside>
+    </aside>
+  </Transition>
 </template>
 
 <script>
+
+import { useMenuStore } from '@/store/menu'
+import { useOverlayStore } from '@/store/overlay'
+
 export default {
-  props: ["value"],
+  setup() {
+    const menuStore = useMenuStore();
+    const overlayStore = useOverlayStore();
+    const callback = ({name}) => name === 'click' && (menuStore.toggle() || overlayStore.toggle());
+    overlayStore.$onAction(callback, true)
+    return { menuStore };
+  },
   data() {
     return {
       asideItems: [
@@ -33,53 +41,46 @@ export default {
 </script>
 
 <style scoped>
-.overlay {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.2);
-  transition: all ease 0.3s;
-  z-index: -1;
+.v-enter-active,
+.v-leave-active {
+  transition: width 0.3s ease;
 }
 
-.overlay.hidden {
-  background: transparent;
+.v-enter-from,
+.v-leave-to {
+  width: 0%
 }
 
 aside {
   height: 100%;
   top: 64px;
-}
-
-.list-items {
   display: flex;
   flex-direction: column;
-  width: 25%;
+  width: 20em;
   background-color: white;
   height: 100%;
-  transition: all ease 0.3s;
-}
-
-.list-items.hidden {
-  width: 0%;
-  display: none;
+  position: fixed;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: width 0.3s ease;
 }
 
 @media only screen and (max-width: 600px) {
-  .list-items {
+  aside {
     width: 100%;
   }
 }
 
-.list-items > * {
+aside>* {
   padding: 1em 0.5em;
 }
 
-.list-items > a::before:hover {
+aside>a::before:hover {
   opacity: 0.1;
 }
 
-.list-items > a::before {
+aside>a::before {
   background: currentColor;
   bottom: 0;
   content: "";
