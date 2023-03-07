@@ -1,5 +1,5 @@
 <template>
-  <nav v-if="site">
+  <nav class="text-unselectable" v-if="site">
     <div id="left">
       <ButtonMenu />
       <!-- <button><img src="../assets/Home.svg" alt="Home" class="iconNavBar"></button>

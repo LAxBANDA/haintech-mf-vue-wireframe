@@ -46,4 +46,10 @@ a {
 a:hover {
   color: var(--secondary-color);
 }
+
+.text-unselectable{
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 </style>

@@ -17,3 +17,13 @@ export default defineComponent({
     },
 });
 </script>
+
+<style scoped>
+button[type="button"] {
+    transition: transform .3s ease;
+}
+
+button[type="button"]:hover{
+    transform: scale(1.2);
+}
+</style>
