@@ -1,6 +1,8 @@
 <template>
   <nav class="text-unselectable" v-if="site">
     <div id="left">
+      <button type="button" @click="$emit('toggleShowAside')"><img src="../assets/Hamburger_menu.svg" alt="Hamburger Menu" class="iconNavBar"></button>
+      <a href="Home"><img src="../assets/Home.svg" alt="Home" class="iconNavBar"></a>
       <ButtonMenu />
       <!-- <button><img src="../assets/Home.svg" alt="Home" class="iconNavBar"></button>
       <a href="#">Modulo 1</a>
