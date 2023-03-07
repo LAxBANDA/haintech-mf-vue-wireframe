@@ -1,14 +1,14 @@
 <template>
   <nav v-if="site">
     <div id="left">
-      <button type="button" @click="$emit('toggleShowAside')"><img src="../assets/Hamburger_menu.svg" alt="Hamburger Menu" class="iconNavBar"></button>
-      <button><img src="../assets/Home.svg" alt="Home" class="iconNavBar"></button>
+      <ButtonMenu />
+      <!-- <button><img src="../assets/Home.svg" alt="Home" class="iconNavBar"></button>
       <a href="#">Modulo 1</a>
       <a href="#">Modulo 2</a>
-      <a href="#">Modulo 3</a>
+      <a href="#">Modulo 3</a> -->
     </div>
     <div id="center">
-      <!-- <h1>{{ site.name }}</h1> -->
+      <h1>{{ site.name }}</h1>
     </div>
     <div id="right">
       <img id="logo" :src="site.logo" :alt="site.name" />
@@ -20,20 +20,19 @@
 </template>
 
 <script>
-import sites from "../sites";
-export default {
-  emits: ["toggleShowAside"],
-  data() {
-    return {
-      site: null,
-    };
+import { defineComponent } from "vue";
+import ButtonMenu from '@/components/Button/Menu.vue';
+
+import sites from "@/sites";
+export default defineComponent({
+  setup(){
+    const site = sites[location.host];
+    return { site }
   },
-  mounted() {
-    console.log(location.host);
-    this.site = sites[location.host];
-    console.log("sitio cargado", { site: this.site });
+  components:{
+    ButtonMenu
   },
-};
+});
 </script>
 
 <style scoped>

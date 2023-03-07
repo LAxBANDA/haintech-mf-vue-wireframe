@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve --port 4201",
+    "t4g": "vue-cli-service serve --port 4200",
+    "pautin": "vue-cli-service serve --port 4300",
+    "vc": "vue-cli-service serve --port 4400",
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "pinia": "^2.0.33",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3"
   },
