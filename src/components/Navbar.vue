@@ -2,7 +2,7 @@
   <nav v-if="site">
     <div id="left">
       <button type="button" @click="$emit('toggleShowAside')"><img src="../assets/Hamburger_menu.svg" alt="Hamburger Menu" class="iconNavBar"></button>
-      <button><img src="../assets/Home.svg" alt="Home" class="iconNavBar"></button>
+      <a href="Home"><img src="../assets/Home.svg" alt="Home" class="iconNavBar"></a>
       <a href="#">Modulo 1</a>
       <a href="#">Modulo 2</a>
       <a href="#">Modulo 3</a>

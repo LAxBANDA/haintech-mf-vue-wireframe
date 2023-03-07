@@ -34,7 +34,7 @@ body {
   --primary-color: #E7632F;
   --primary-soft-color: #FCDCCF;
   --secondary-color: #00BAFF;
-  --secondary-color: #99E3FF;
+  --secondary-soft-color: #99E3FF;
 }
 
 a {
