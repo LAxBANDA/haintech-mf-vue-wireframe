@@ -1,33 +1,43 @@
 <template>
-    <header>
-      <Navbar />
-    </header>
+  <header>
+    <Suspense>
+      <template #default>
+        <Navbar />
+      </template>
+      <template #fallback>
+        <p>Loading........ </p>
+      </template>
+    </Suspense>
+  </header>
 
-    <Sidebar />
+  <Sidebar />
 
-    <main>
-      <slot />
-    </main>
+  <main>
+    <slot />
+  </main>
 
-    <footer>Footer content</footer>
+  <footer>Footer content</footer>
 </template>
 
 <script>
 import Sidebar from "./Sidebar.vue";
 import BaseSection from "./BaseSection.vue";
 import SectionButtons from "./SectionButtons.vue";
-import { defineAsyncComponent } from "vue";
-const Navbar = defineAsyncComponent({
-  loader:() => import('./Navbar.vue')
-})
+import { defineAsyncComponent, onErrorCaptured } from "vue";
+const Navbar = defineAsyncComponent(() => import("./Navbar.vue"));
 export default {
   components: {
     Navbar,
     Sidebar,
     BaseSection,
-    SectionButtons
-},
-  data() {
+    SectionButtons,
+  },
+  setup() {
+    onErrorCaptured(err => {
+      console.log('Error:',err)
+      return true
+    })
+
     return {
       showAside: false,
     };

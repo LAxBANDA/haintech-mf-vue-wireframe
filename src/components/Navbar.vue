@@ -4,10 +4,10 @@
       <ButtonMenu />
     </div>
     <div id="center">
-      <h1>{{ site.name }}</h1>
+      <h1>{{ site?.name }}</h1>
     </div>
     <div id="right">
-      <img id="logo" :src="site.logo" :alt="site.name" />
+      <img id="logo" :src="site?.logo" :alt="site?.name" />
       <button id="apps-button" type="button">
         <Icon>apps</Icon>
       </button>
@@ -17,7 +17,7 @@
 
 <script>
 import Icon from '@/components/Icon.vue'
-import { defineComponent, ref } from "vue";
+import { ref } from "vue";
 import ButtonMenu from '@/components/Button/Menu.vue';
 
 import sites from "@/sites";
@@ -43,6 +43,7 @@ nav {
   background-color: #fff;
   color: var(--primary-color);
   box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
 nav::before {
