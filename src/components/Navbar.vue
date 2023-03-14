@@ -1,11 +1,7 @@
 <template>
-  <nav class="text-unselectable" v-if="site">
+  <nav class="text-unselectable">
     <div id="left">
       <ButtonMenu />
-      <!-- <button><img src="../assets/Home.svg" alt="Home" class="iconNavBar"></button>
-      <a href="#">Modulo 1</a>
-      <a href="#">Modulo 2</a>
-      <a href="#">Modulo 3</a> -->
     </div>
     <div id="center">
       <h1>{{ site.name }}</h1>
@@ -13,26 +9,28 @@
     <div id="right">
       <img id="logo" :src="site.logo" :alt="site.name" />
       <button id="apps-button" type="button">
-        <v-icon>apps</v-icon>
+        <Icon>apps</Icon>
       </button>
     </div>
   </nav>
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import Icon from '@/components/Icon.vue'
+import { defineComponent, ref } from "vue";
 import ButtonMenu from '@/components/Button/Menu.vue';
 
 import sites from "@/sites";
-export default defineComponent({
+export default {
   setup(){
-    const site = sites[location.host];
+    const site = ref(sites[location.host]);
     return { site }
   },
   components:{
-    ButtonMenu
+    ButtonMenu,
+    Icon
   },
-});
+};
 </script>
 
 <style scoped>

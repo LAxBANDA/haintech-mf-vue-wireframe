@@ -1,5 +1,4 @@
 <template>
-  <div>
     <header>
       <Navbar />
     </header>
@@ -7,19 +6,20 @@
     <Sidebar />
 
     <main>
-      <SectionButtons />
+      <slot />
     </main>
 
-    <!-- <footer>Footer content</footer> -->
-  </div>
+    <footer>Footer content</footer>
 </template>
 
 <script>
-import Navbar from "./Navbar.vue";
 import Sidebar from "./Sidebar.vue";
 import BaseSection from "./BaseSection.vue";
 import SectionButtons from "./SectionButtons.vue";
-
+import { defineAsyncComponent } from "vue";
+const Navbar = defineAsyncComponent({
+  loader:() => import('./Navbar.vue')
+})
 export default {
   components: {
     Navbar,
@@ -44,7 +44,7 @@ export default {
     Script = document.createElement("link");
     Script.setAttribute(
       "href",
-      "https://fonts.googleapis.com/css?family=Raleway&amp;display=swap"
+      "https://fonts.googleapis.com/css?family=Poppins&amp;display=swap"
     );
     Script.setAttribute("rel", "stylesheet");
     document.head.appendChild(Script);

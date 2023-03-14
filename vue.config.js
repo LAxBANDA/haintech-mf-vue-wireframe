@@ -34,13 +34,9 @@ module.exports = defineConfig({
         name: 'vue_remote',
         filename: 'remoteEntry.js',
         exposes: {
-          './Wireframe': './src/components/Wireframe.web-component.js',
+          './Wireframe': './src/components/Wireframe.vue'
         },
-        shared: {
-          vue: {
-            singleton: true,
-          },
-        },
+        shared: require("./package.json").dependencies,
       }),
     ],
   },

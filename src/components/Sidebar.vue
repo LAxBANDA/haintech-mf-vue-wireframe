@@ -2,23 +2,28 @@
   <Transition>
     <aside v-show="menuStore.show">
       <a v-for="(item, index) in asideItems" :href="item.href">
-        <v-icon v-if="item.icon" class="mr-2">{{ item.icon }}</v-icon>{{ item.title }}
+        <Icon v-if="item.icon" class="mr-2">{{ item.icon }}</Icon
+        >{{ item.title }}
       </a>
     </aside>
   </Transition>
 </template>
 
 <script>
-
-import { useMenuStore } from '@/store/menu'
-import { useOverlayStore } from '@/store/overlay'
+import { useMenuStore } from "@/store/menu";
+import { useOverlayStore } from "@/store/overlay";
+import Icon from "@/components/Icon";
 
 export default {
+  components: {
+    Icon,
+  },
   setup() {
     const menuStore = useMenuStore();
     const overlayStore = useOverlayStore();
-    const callback = ({name}) => name === 'click' && (menuStore.toggle() || overlayStore.toggle());
-    overlayStore.$onAction(callback, true)
+    const callback = ({ name }) =>
+      name === "click" && (menuStore.toggle() || overlayStore.toggle());
+    overlayStore.$onAction(callback, true);
     return { menuStore };
   },
   data() {
@@ -48,7 +53,7 @@ export default {
 
 .v-enter-from,
 .v-leave-to {
-  width: 0%
+  width: 0%;
 }
 
 aside {
@@ -72,15 +77,15 @@ aside {
   }
 }
 
-aside>* {
+aside > * {
   padding: 1em 0.5em;
 }
 
-aside>a::before:hover {
+aside > a::before:hover {
   opacity: 0.1;
 }
 
-aside>a::before {
+aside > a::before {
   background: currentColor;
   bottom: 0;
   content: "";
