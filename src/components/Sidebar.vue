@@ -68,7 +68,7 @@ aside {
   text-overflow: ellipsis;
   white-space: nowrap;
   transition: width 0.3s ease;
-  z-index: 1
+  z-index: 2;
 }
 
 @media only screen and (max-width: 600px) {
