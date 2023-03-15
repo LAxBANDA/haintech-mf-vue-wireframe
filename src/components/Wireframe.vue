@@ -1,4 +1,5 @@
 <template>
+  <Overlay></Overlay>
   <header>
     <Suspense>
       <template #default>
@@ -24,6 +25,7 @@ import Sidebar from "./Sidebar.vue";
 import BaseSection from "./BaseSection.vue";
 import SectionButtons from "./SectionButtons.vue";
 import { defineAsyncComponent, onErrorCaptured } from "vue";
+import Overlay from './Overlay.vue'
 const Navbar = defineAsyncComponent(() => import("./Navbar.vue"));
 export default {
   components: {
@@ -31,6 +33,7 @@ export default {
     Sidebar,
     BaseSection,
     SectionButtons,
+    Overlay
   },
   setup() {
     onErrorCaptured(err => {
