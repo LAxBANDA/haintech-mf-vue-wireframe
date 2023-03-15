@@ -35,8 +35,8 @@ export default {
           icon: "home",
         },
         {
-          title: "Modulo 1",
-          href: "/s",
+          title: "Visor",
+          href: "/viewer",
           icon: "face",
         },
       ],
