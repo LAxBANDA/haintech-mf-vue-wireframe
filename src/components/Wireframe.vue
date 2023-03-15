@@ -45,7 +45,7 @@ export default {
       showAside: false,
     };
   },
-  mounted() {
+  created() {
     let Script = document.createElement("link");
     Script.setAttribute(
       "href",
@@ -65,8 +65,20 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 header {
   height: 64px;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background-color: #fff;
+  color: var(--primary-color);
+  box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);
 }
 </style>

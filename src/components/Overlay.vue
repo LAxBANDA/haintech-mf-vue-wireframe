@@ -1,20 +1,20 @@
 <template>
-    <Transition>
-        <div v-show="overlayStore.show" class="overlay" @click="overlayStore.click()"></div>
-    </Transition>
+  <Transition>
+    <div v-show="overlayStore.show" class="overlay" @click="overlayStore.click()"></div>
+  </Transition>
 </template>
 
 <script>
-import { useOverlayStore } from '@/store/overlay'
-import { defineComponent } from 'vue';
+import { useOverlayStore } from "@/store/overlay";
+import { defineComponent } from "vue";
 
-export default defineComponent({    
-    setup() {
-        const overlayStore = useOverlayStore();
-        
-        return { overlayStore }
-    }
-})
+export default defineComponent({
+  setup() {
+    const overlayStore = useOverlayStore();
+
+    return { overlayStore };
+  },
+});
 </script>
 
 <style scoped>
@@ -29,11 +29,10 @@ export default defineComponent({
 }
 
 .overlay {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    background: rgba(0,0,0,0.3);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.3);
 }
-
 </style>
