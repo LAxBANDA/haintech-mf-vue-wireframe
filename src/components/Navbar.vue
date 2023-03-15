@@ -43,7 +43,7 @@ nav {
   background-color: #fff;
   color: var(--primary-color);
   box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);
-  z-index: 200;
+  z-index: 2;
 }
 
 nav::before {
